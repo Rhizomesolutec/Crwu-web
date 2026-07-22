@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*", "./*"],
+      "@/image/*": ["./public/artists/*", "./public/release/*", "./public/*"]
     }
   },
   "include": [
