@@ -14,13 +14,15 @@ export default function ArtistsDirectoryPage() {
 
   const genres = ["ALL", ...Array.from(new Set(ARTISTS.map((a) => a.genre)))];
 
-  const filteredArtists = ARTISTS.filter((artist) => {
-    const matchesSearch =
-      artist.name.toLowerCase().includes(search.toLowerCase()) ||
-      artist.description.toLowerCase().includes(search.toLowerCase());
-    const matchesGenre = selectedGenre === "ALL" || artist.genre === selectedGenre;
-    return matchesSearch && matchesGenre;
-  });
+  const filteredArtists = [...ARTISTS]
+    .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }))
+    .filter((artist) => {
+      const matchesSearch =
+        artist.name.toLowerCase().includes(search.toLowerCase()) ||
+        artist.description.toLowerCase().includes(search.toLowerCase());
+      const matchesGenre = selectedGenre === "ALL" || artist.genre === selectedGenre;
+      return matchesSearch && matchesGenre;
+    });
 
   return (
     <div className="min-h-screen bg-[#F5F2FB] text-[#1E1330]">

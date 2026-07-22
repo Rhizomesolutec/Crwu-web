@@ -12,8 +12,12 @@ interface ArtistsSectionProps {
 }
 
 export function ArtistsSection({ limit, showHeading = true }: ArtistsSectionProps) {
-  // Displays all 18 artists when no limit is provided
-  const displayedArtists = limit ? ARTISTS.slice(0, limit) : ARTISTS;
+  // Sort artists alphabetically by name (A to Z)
+  const sortedArtists = [...ARTISTS].sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+  );
+
+  const displayedArtists = limit ? sortedArtists.slice(0, limit) : sortedArtists;
 
   return (
     <section id="artists" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

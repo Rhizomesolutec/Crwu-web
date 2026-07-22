@@ -103,7 +103,7 @@ export function BookingSelector({ artistName }: BookingSelectorProps) {
             <button
               key={item.id}
               onClick={() => setSelectedType(item.id)}
-              className={`relative flex-1 flex items-center justify-center gap-2 py-3 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`relative flex-1 flex items-center justify-center gap-1 sm:gap-2 py-2.5 sm:py-3 px-1 sm:px-3 rounded-xl text-[11px] sm:text-sm font-bold transition-all duration-200 min-w-0 ${
                 isSelected
                   ? "text-white shadow-md"
                   : "text-[#6E6485] hover:text-[#2B154B]"
@@ -116,9 +116,9 @@ export function BookingSelector({ artistName }: BookingSelectorProps) {
                   transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
-              <span className="relative z-10 flex items-center gap-1.5">
-                <Icon className="w-4 h-4" />
-                <span>{item.id}</span>
+              <span className="relative z-10 flex items-center gap-1 sm:gap-1.5 whitespace-nowrap">
+                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="whitespace-nowrap">{item.id}</span>
               </span>
             </button>
           );
