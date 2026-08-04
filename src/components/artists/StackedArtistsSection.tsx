@@ -61,10 +61,7 @@ export function StackedArtistsSection({
         // Requested reveal direction: 1st from left, 2nd from right, 3rd from left.
         const direction = index === 1 ? 1 : -1;
         // Keep entry subtle but ensure reverse can move fully out of screen.
-        const xDistance = isMobile
-          ? Math.min(Math.max(window.innerWidth * 0.88, 260), 420)
-          : Math.min(Math.max(window.innerWidth * 0.72, 520), 860);
-        const yDistance = isMobile ? 16 : 24;
+        const xDistance = Math.min(Math.max(window.innerWidth * 0.72, 520), 860);
 
         gsap.set([image, content, ...lines], {
           willChange: "transform, opacity",
@@ -72,81 +69,112 @@ export function StackedArtistsSection({
         });
 
         const reveal = gsap.timeline({
-          defaults: { ease: "power3.out" },
+          defaults: { ease: "power2.out" },
           scrollTrigger: {
             trigger: row,
-            start: "top 80%",
-            end: "bottom 38%",
+            // Wider window on mobile so enter/leave don't fire back-to-back
+            // (which read as a "jump"/vibration) on short, fast scrolls.
+            start: isMobile ? "top 88%" : "top 80%",
+            end: isMobile ? "bottom 20%" : "bottom 38%",
             toggleActions: "play reverse play reverse",
             invalidateOnRefresh: true,
           },
         });
 
-        reveal
-          .fromTo(
-            image,
-            {
-              opacity: 0,
-              x: direction * xDistance,
-              y: yDistance,
-              scale: 0.975,
-              filter: "blur(8px)",
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-              filter: "blur(0px)",
-              duration: 1.05,
-            },
-            0
-          )
-          .fromTo(
-            content,
-            {
-              opacity: 0,
-              x: direction * (xDistance * 0.82),
-              y: yDistance,
-              scale: 0.985,
-              filter: "blur(6px)",
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-              filter: "blur(0px)",
-              duration: 0.96,
-            },
-            0.08
-          )
-          .from(
-            lines,
-            {
-              opacity: 0,
-              y: 18,
-              stagger: 0.08,
-              duration: 0.66,
-              ease: "power2.out",
-            },
-            0.2
-          );
+        if (isMobile) {
+          // Simple, cheap fade + rise — no horizontal travel, scale or blur —
+          // so every artist reveals identically and smoothly on phones.
+          reveal
+            .fromTo(
+              image,
+              { opacity: 0, y: 22 },
+              { opacity: 1, y: 0, duration: 0.5 },
+              0
+            )
+            .fromTo(
+              content,
+              { opacity: 0, y: 18 },
+              { opacity: 1, y: 0, duration: 0.45 },
+              0.05
+            )
+            .from(
+              lines,
+              { opacity: 0, y: 12, stagger: 0.06, duration: 0.4 },
+              0.15
+            );
+        } else {
+          reveal
+            .fromTo(
+              image,
+              {
+                opacity: 0,
+                x: direction * xDistance,
+                y: 24,
+                scale: 0.975,
+                filter: "blur(8px)",
+              },
+              {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 1.05,
+                ease: "power3.out",
+              },
+              0
+            )
+            .fromTo(
+              content,
+              {
+                opacity: 0,
+                x: direction * (xDistance * 0.82),
+                y: 24,
+                scale: 0.985,
+                filter: "blur(6px)",
+              },
+              {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                duration: 0.96,
+                ease: "power3.out",
+              },
+              0.08
+            )
+            .from(
+              lines,
+              {
+                opacity: 0,
+                y: 18,
+                stagger: 0.08,
+                duration: 0.66,
+                ease: "power2.out",
+              },
+              0.2
+            );
+        }
 
-        gsap.fromTo(
-          image,
-          { yPercent: isMobile ? 0 : 3 },
-          {
-            yPercent: isMobile ? 0 : -3.5,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.85,
-            },
-          }
-        );
+        // Skip the parallax drift on mobile — it's a no-op there and just
+        // adds an extra scroll-linked animation for the browser to compute.
+        if (!isMobile) {
+          gsap.fromTo(
+            image,
+            { yPercent: 3 },
+            {
+              yPercent: -3.5,
+              ease: "none",
+              scrollTrigger: {
+                trigger: row,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.85,
+              },
+            }
+          );
+        }
       });
     }, rootRef);
 
@@ -238,7 +266,7 @@ export function StackedArtistsSection({
                     }`}
                   >
                     <div
-                      className={`w-full max-w-xl space-y-5 sm:space-y-6 rounded-2xl bg-[#F5F2FB]/92 backdrop-blur-sm px-5 py-6 sm:px-7 sm:py-8 ${
+                      className={`w-full max-w-xl space-y-5 sm:space-y-6 rounded-2xl bg-[#F5F2FB]/92 md:backdrop-blur-sm px-5 py-6 sm:px-7 sm:py-8 ${
                         isLeftImage ? "md:ml-0" : "md:ml-auto"
                       }`}
                     >
