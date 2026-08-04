@@ -1,12 +1,14 @@
 import { Variants } from "framer-motion";
 
+const easeOut = [0.22, 1, 0.36, 1] as const;
+
 export const fadeIn: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
+    transition: { duration: 0.65, ease: easeOut },
+  },
 };
 
 export const staggerContainer: Variants = {
@@ -14,30 +16,30 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1
-    }
-  }
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
 };
 
 export const cardHover: Variants = {
   initial: { scale: 1, y: 0 },
   hover: {
-    scale: 1.03,
-    y: -4,
-    transition: { type: "spring", stiffness: 300, damping: 20 }
-  }
+    scale: 1.015,
+    y: -6,
+    transition: { duration: 0.45, ease: easeOut },
+  },
 };
 
 export const navScrollAnimation: Variants = {
   top: {
-    backgroundColor: "rgba(245, 242, 251, 0)",
+    backgroundColor: "rgba(247, 245, 251, 0)",
     boxShadow: "0 0 0 rgba(0, 0, 0, 0)",
-    backdropFilter: "blur(0px)"
+    backdropFilter: "blur(0px)",
   },
   scrolled: {
-    backgroundColor: "rgba(245, 242, 251, 0.85)",
-    boxShadow: "0 10px 30px -10px rgba(43, 21, 75, 0.08)",
-    backdropFilter: "blur(16px)"
-  }
+    backgroundColor: "rgba(247, 245, 251, 0.88)",
+    boxShadow: "0 10px 30px -12px rgba(78, 42, 132, 0.08)",
+    backdropFilter: "blur(16px)",
+  },
 };

@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
+
+/** `useLayoutEffect` on the client, `useEffect` during SSR to avoid hydration warnings. */
+export const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export function useGsapFloating(selector: string) {
   useEffect(() => {

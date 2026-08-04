@@ -42,12 +42,22 @@ export function AdminDashboard() {
   const [typeFilter, setTypeFilter] = useState<string>("ALL");
 
   useEffect(() => {
-    setBookings(getStoredBookings());
+    let mounted = true;
+    getStoredBookings().then((data) => {
+      if (mounted) setBookings(data);
+    });
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  const handleStatusChange = (id: string, newStatus: BookingStatus) => {
-    const updated = updateBookingStatus(id, newStatus);
-    setBookings(updated);
+  const handleStatusChange = async (id: string, newStatus: BookingStatus) => {
+    try {
+      const updated = await updateBookingStatus(id, newStatus);
+      setBookings(updated);
+    } catch (error) {
+      console.error("Failed to update booking status:", error);
+    }
   };
 
   // Strict isolation filter
@@ -122,7 +132,7 @@ export function AdminDashboard() {
           </div>
 
           {/* Selector Dropdown / Pills */}
-          <div className="w-full sm:w-auto flex items-center gap-2 bg-[#F5F2FB] p-1.5 rounded-2xl border border-[#B7A7D6]/30">
+          <div className="w-full sm:w-auto flex items-center gap-2 bg-[#FAF8FC] p-1.5 rounded-2xl border border-[#B7A7D6]/30">
             <span className="text-xs font-bold text-[#6E6485] px-2 font-mono flex items-center gap-1">
               <Lock className="w-3.5 h-3.5 text-[#2B154B]" />
               <span>Login Profile:</span>
@@ -221,7 +231,7 @@ export function AdminDashboard() {
               placeholder="Search organizer, venue, or ID..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B]"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B]"
             />
           </div>
 
@@ -229,7 +239,7 @@ export function AdminDashboard() {
           <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
             
             {/* Status Filter */}
-            <div className="flex items-center bg-[#F5F2FB] p-1 rounded-xl border border-[#B7A7D6]/30">
+            <div className="flex items-center bg-[#FAF8FC] p-1 rounded-xl border border-[#B7A7D6]/30">
               {["ALL", "PENDING", "CONFIRMED", "COMPLETED"].map((st) => (
                 <button
                   key={st}
@@ -246,7 +256,7 @@ export function AdminDashboard() {
             </div>
 
             {/* Type Filter */}
-            <div className="flex items-center bg-[#F5F2FB] p-1 rounded-xl border border-[#B7A7D6]/30">
+            <div className="flex items-center bg-[#FAF8FC] p-1 rounded-xl border border-[#B7A7D6]/30">
               {["ALL", "CONCERT", "STAGE SHOW", "COLLABORATION"].map((tp) => (
                 <button
                   key={tp}
@@ -318,7 +328,7 @@ export function AdminDashboard() {
                       <select
                         value={b.status}
                         onChange={(e) => handleStatusChange(b.id, e.target.value as BookingStatus)}
-                        className="text-xs font-bold bg-[#F5F2FB] text-[#2B154B] border border-[#B7A7D6]/40 px-2.5 py-1.5 rounded-xl cursor-pointer focus:outline-none"
+                        className="text-xs font-bold bg-[#FAF8FC] text-[#2B154B] border border-[#B7A7D6]/40 px-2.5 py-1.5 rounded-xl cursor-pointer focus:outline-none"
                       >
                         <option value="Pending">Set Pending</option>
                         <option value="Confirmed">Set Confirmed</option>
@@ -355,9 +365,9 @@ export function AdminDashboard() {
 
                   {/* Organizer Note */}
                   {b.message && (
-                    <div className="bg-[#F5F2FB] p-3 rounded-2xl border border-[#B7A7D6]/20 text-xs text-[#6E6485]">
+                    <div className="bg-[#FAF8FC] p-3 rounded-2xl border border-[#B7A7D6]/20 text-xs text-[#6E6485]">
                       <span className="font-bold text-[#2B154B]">Message: </span>
-                      <span>"{b.message}"</span>
+                      <span>&ldquo;{b.message}&rdquo;</span>
                     </div>
                   )}
 

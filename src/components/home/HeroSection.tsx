@@ -11,10 +11,25 @@ export function HeroSection() {
   useGsapFloating(".gsap-float");
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-[#F5F2FB]">
+    <section className="relative min-h-screen pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex items-center justify-center overflow-hidden bg-[#1A0E2E]">
+      {/* Stage show background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/hero_stage_background.png"
+          alt="CRWU live stage concert background"
+          fill
+          priority
+          className="object-cover"
+        />
+        {/* Readability overlays: consistent dark wash, fading into page background only at the very bottom */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1A0E2E]/88 via-[#241442]/75 to-[#1A0E2E]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A0E2E]/35 via-transparent to-[#1A0E2E]/92" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-[#1A0E2E]" />
+      </div>
+
       {/* Background ambient purple glows */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#B7A7D6]/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-[#4B2E83]/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-10 w-96 h-96 bg-[#B7A7D6]/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[30rem] h-[30rem] bg-[#4B2E83]/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
         
@@ -26,20 +41,20 @@ export function HeroSection() {
           className="lg:col-span-7 space-y-6 text-left"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-[#2B154B]/10 border border-[#B7A7D6]/40 px-4 py-1.5 rounded-full">
-            <Sparkles className="w-4 h-4 text-[#4B2E83]" />
-            <span className="text-xs sm:text-sm font-bold tracking-wider text-[#2B154B] uppercase font-mono">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-[#B7A7D6]/40 px-4 py-1.5 rounded-full">
+            <Sparkles className="w-4 h-4 text-[#B7A7D6]" />
+            <span className="text-xs sm:text-sm font-bold tracking-wider text-white uppercase font-mono">
               RAP • BEATS • LIVE PERFORMANCE
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#2B154B] leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]">
             Book the Next Voice of the Stage
           </h1>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-[#6E6485] font-normal leading-relaxed max-w-2xl">
+          <p className="text-lg sm:text-xl text-[#D8CFEA] font-normal leading-relaxed max-w-2xl">
             CRWU connects event organizers with talented rap artists, beat makers, and performers for concerts, stage shows, and creative collaborations.
           </p>
 
@@ -55,26 +70,26 @@ export function HeroSection() {
 
             <a
               href="#releases"
-              className="inline-flex items-center gap-3 bg-white/80 hover:bg-white text-[#2B154B] border border-[#B7A7D6]/50 font-semibold px-8 py-4 rounded-2xl text-base shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-[#B7A7D6]/50 font-semibold px-8 py-4 rounded-2xl text-base shadow-sm hover:shadow-md transition-all transform hover:-translate-y-0.5"
             >
-              <Play className="w-4 h-4 fill-[#2B154B]" />
+              <Play className="w-4 h-4 fill-white" />
               <span>Watch Releases</span>
             </a>
           </div>
 
           {/* Micro Stats / Highlights */}
-          <div className="pt-8 border-t border-[#B7A7D6]/30 grid grid-cols-3 gap-4 max-w-lg">
+          <div className="pt-8 border-t border-white/20 grid grid-cols-3 gap-4 max-w-lg">
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#2B154B]">18+</p>
-              <p className="text-xs text-[#6E6485] font-medium">Roster Artists</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-white">18+</p>
+              <p className="text-xs text-[#D8CFEA] font-medium">Roster Artists</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#2B154B]">50+</p>
-              <p className="text-xs text-[#6E6485] font-medium">Stage Shows</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-white">50+</p>
+              <p className="text-xs text-[#D8CFEA] font-medium">Stage Shows</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#2B154B]">100%</p>
-              <p className="text-xs text-[#6E6485] font-medium">Verified Roster</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-white">100%</p>
+              <p className="text-xs text-[#D8CFEA] font-medium">Verified Roster</p>
             </div>
           </div>
         </motion.div>

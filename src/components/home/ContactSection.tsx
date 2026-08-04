@@ -124,7 +124,7 @@ export function ContactSection() {
                   placeholder="Your Name"
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
+                  className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
                 />
               </div>
 
@@ -138,7 +138,7 @@ export function ContactSection() {
                   placeholder="your.email@example.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
+                  className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
                 />
               </div>
 
@@ -152,7 +152,7 @@ export function ContactSection() {
                   placeholder="e.g. Festival Headliner Inquiry"
                   value={form.subject}
                   onChange={(e) => setForm({ ...form, subject: e.target.value })}
-                  className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
+                  className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B]"
                 />
               </div>
 
@@ -166,7 +166,7 @@ export function ContactSection() {
                   placeholder="How can we assist your event?"
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] resize-none"
+                  className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] resize-none"
                 />
               </div>
 

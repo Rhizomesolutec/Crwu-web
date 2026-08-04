@@ -39,7 +39,7 @@ export function ArtistModal({ artist, onClose, onBook }: ArtistModalProps) {
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-[#F5F2FB] hover:bg-[#B7A7D6]/20 text-[#2B154B] transition-colors"
+            className="absolute top-4 right-4 p-2 rounded-full bg-[#FAF8FC] hover:bg-[#B7A7D6]/20 text-[#2B154B] transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -85,7 +85,7 @@ export function ArtistModal({ artist, onClose, onBook }: ArtistModalProps) {
                       href={artist.socials.instagram}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#F5F2FB] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
+                      className="inline-flex items-center gap-1.5 bg-[#FAF8FC] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
                     >
                       <InstagramIcon className="w-3.5 h-3.5 text-[#4B2E83]" />
                       <span>Instagram</span>
@@ -96,7 +96,7 @@ export function ArtistModal({ artist, onClose, onBook }: ArtistModalProps) {
                       href={artist.socials.spotify}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#F5F2FB] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
+                      className="inline-flex items-center gap-1.5 bg-[#FAF8FC] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
                     >
                       <Music className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Spotify</span>
@@ -107,7 +107,7 @@ export function ArtistModal({ artist, onClose, onBook }: ArtistModalProps) {
                       href={artist.socials.youtube}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#F5F2FB] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
+                      className="inline-flex items-center gap-1.5 bg-[#FAF8FC] hover:bg-[#B7A7D6]/30 text-[#2B154B] font-bold text-xs px-3 py-1.5 rounded-xl border border-[#B7A7D6]/40 transition-colors"
                     >
                       <YoutubeIcon className="w-3.5 h-3.5 text-red-600" />
                       <span>YouTube</span>

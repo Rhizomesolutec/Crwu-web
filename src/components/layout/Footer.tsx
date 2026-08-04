@@ -5,7 +5,7 @@ import { InstagramIcon, YoutubeIcon } from "@/components/common/Icons";
 
 export function Footer() {
   return (
-    <footer className="bg-[#2B154B] text-[#F5F2FB] pt-16 pb-12 border-t border-[#4B2E83]">
+    <footer className="bg-[#1A0E2E] text-[#F5F1FB] pt-16 pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Col */}

@@ -22,7 +22,7 @@ export default function ReleasesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#F5F2FB] text-[#1E1330]">
+    <div className="min-h-screen bg-[#F5F2FB] text-[#1F1F1F]">
       <Navbar />
 
       <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
@@ -50,7 +50,7 @@ export default function ReleasesPage() {
               placeholder="Search title or artist..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B]"
+              className="w-full bg-[#F1ECF7] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B]"
             />
           </div>
 
@@ -62,7 +62,7 @@ export default function ReleasesPage() {
                 className={`px-4 py-2 rounded-xl text-xs font-bold font-mono transition-all ${
                   filterType === type
                     ? "bg-[#2B154B] text-white shadow-sm"
-                    : "bg-[#F5F2FB] text-[#6E6485] hover:text-[#2B154B]"
+                    : "bg-[#F1ECF7] text-[#6E6485] hover:text-[#2B154B]"
                 }`}
               >
                 {type}

@@ -1,22 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2B154B;
-  --color-secondary: #4B2E83;
-  --color-accent: #B7A7D6;
+  --color-primary: #4E2A84;
+  --color-secondary: #7B61FF;
+  --color-accent: #7B61FF;
   --color-surface: #F5F2FB;
-  --color-text: #1E1330;
+  --color-surface-alt: #EFE9F8;
+  --color-text: #1F1F1F;
   --color-muted: #6E6485;
 }
 
 :root {
   --background: #F5F2FB;
-  --foreground: #1E1330;
-  --primary: #2B154B;
-  --secondary: #4B2E83;
-  --accent: #B7A7D6;
+  --foreground: #1F1F1F;
+  --primary: #4E2A84;
+  --secondary: #7B61FF;
+  --accent: #7B61FF;
   --surface: #F5F2FB;
-  --text: #1E1330;
+  --surface-alt: #EFE9F8;
+  --text: #1F1F1F;
   --muted: #6E6485;
 }
 
@@ -27,31 +29,60 @@ html {
 
 body {
   background-color: #F5F2FB;
-  color: #1E1330;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #1F1F1F;
+  font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
+  min-height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-recoleta), var(--font-inter), Georgia, serif;
+}
+
+/* Artist name bright glow — always keeps solid readable text on light canvas */
+@keyframes artist-name-glow {
+  0%,
+  100% {
+    color: #1f1f1f;
+    text-shadow: 0 0 0 transparent;
+  }
+  50% {
+    color: #4e2a84;
+    text-shadow:
+      0 0 18px rgba(123, 97, 255, 0.35),
+      0 0 36px rgba(78, 42, 132, 0.2);
+  }
+}
+
+.artist-name-shine {
+  color: #1f1f1f;
+  animation: artist-name-glow 3.8s ease-in-out infinite;
 }
 
 /* Glassmorphism helpers */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(183, 167, 214, 0.3);
+  border: 1px solid rgba(78, 42, 132, 0.12);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(183, 167, 214, 0.4);
+  border: 1px solid rgba(78, 42, 132, 0.1);
 }
 
 .glass-dark {
-  background: rgba(43, 21, 75, 0.85);
+  background: rgba(78, 42, 132, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(183, 167, 214, 0.2);
+  border: 1px solid rgba(123, 97, 255, 0.2);
 }
 
 /* Custom scrollbar */
@@ -65,10 +96,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #B7A7D6;
+  background: #C9BDE8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4B2E83;
+  background: #4E2A84;
 }

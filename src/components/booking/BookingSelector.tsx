@@ -95,7 +95,7 @@ export function BookingSelector({ artistName }: BookingSelectorProps) {
       </div>
 
       {/* Segmented Tab Control */}
-      <div className="flex p-1.5 bg-[#F5F2FB] rounded-2xl border border-[#B7A7D6]/30 max-w-xl mx-auto">
+      <div className="flex p-1.5 bg-[#FAF8FC] rounded-2xl border border-[#B7A7D6]/30 max-w-xl mx-auto">
         {BOOKING_TYPES.map((item) => {
           const Icon = item.icon;
           const isSelected = selectedType === item.id;
@@ -129,7 +129,7 @@ export function BookingSelector({ artistName }: BookingSelectorProps) {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* Dynamic Detail Panel */}
-        <div className="lg:col-span-5 bg-[#F5F2FB] rounded-2xl p-6 border border-[#B7A7D6]/30 space-y-6">
+        <div className="lg:col-span-5 bg-[#FAF8FC] rounded-2xl p-6 border border-[#B7A7D6]/30 space-y-6">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedType}

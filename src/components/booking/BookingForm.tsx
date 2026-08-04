@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Send, CheckCircle, Calendar, MapPin, User, Mail, Phone as PhoneIcon, MessageSquare } from "lucide-react";
 import type { BookingType } from "./BookingSelector";
 import { saveBookingRequest } from "@/lib/bookingStore";
@@ -17,48 +17,45 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
     phone: "",
     eventDate: "",
     venue: "",
-    bookingType: bookingType,
-    message: ""
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setFormData((prev) => ({ ...prev, bookingType }));
-  }, [bookingType]);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    // Save to persistent booking store
-    saveBookingRequest({
-      artistRequested: artistName || "General Roster / Unspecified",
-      organizerName: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      eventDate: formData.eventDate,
-      venue: formData.venue,
-      bookingType: formData.bookingType,
-      message: formData.message
-    });
-
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await saveBookingRequest({
+        artistRequested: artistName || "General Roster / Unspecified",
+        organizerName: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        eventDate: formData.eventDate,
+        venue: formData.venue,
+        bookingType,
+        message: formData.message,
+      });
       setSubmitted(true);
-    }, 600);
+    } catch (error) {
+      console.error("Booking submission failed:", error);
+      alert("Unable to submit booking right now. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
     return (
-      <div className="bg-[#F5F2FB] rounded-2xl p-8 border border-[#B7A7D6]/50 text-center space-y-4 shadow-sm">
+      <div className="bg-[#FAF8FC] rounded-2xl p-8 border border-[#B7A7D6]/50 text-center space-y-4 shadow-sm">
         <div className="w-16 h-16 bg-[#2B154B] rounded-full flex items-center justify-center mx-auto text-[#B7A7D6] shadow-lg">
           <CheckCircle className="w-8 h-8" />
         </div>
         <h4 className="text-2xl font-extrabold text-[#2B154B]">Booking Request Received!</h4>
         <p className="text-sm text-[#6E6485] max-w-md mx-auto">
-          Thank you <span className="font-bold text-[#2B154B]">{formData.name}</span>. Our CRWU artist management team will review your event details for <span className="font-bold text-[#2B154B]">{formData.bookingType}</span> and contact you at <span className="font-bold text-[#2B154B]">{formData.email}</span> within 24 hours.
+          Thank you <span className="font-bold text-[#2B154B]">{formData.name}</span>. Our CRWU artist management team will review your event details for <span className="font-bold text-[#2B154B]">{bookingType}</span> and contact you at <span className="font-bold text-[#2B154B]">{formData.email}</span> within 24 hours.
         </p>
         <button
           onClick={() => {
@@ -69,8 +66,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               phone: "",
               eventDate: "",
               venue: "",
-              bookingType: bookingType,
-              message: ""
+              message: "",
             });
           }}
           className="inline-block mt-4 text-xs font-bold text-[#2B154B] hover:text-[#4B2E83] underline"
@@ -98,7 +94,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               placeholder="e.g. Rahul Sharma"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
             />
           </div>
         </div>
@@ -116,7 +112,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               placeholder="e.g. organizer@event.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
             />
           </div>
         </div>
@@ -134,7 +130,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               placeholder="+91 98765 43210"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
             />
           </div>
         </div>
@@ -151,7 +147,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               required
               value={formData.eventDate}
               onChange={(e) => setFormData({ ...formData, eventDate: e.target.value })}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
             />
           </div>
         </div>
@@ -172,7 +168,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
               placeholder="e.g. Kochi Arena / Bangalore"
               value={formData.venue}
               onChange={(e) => setFormData({ ...formData, venue: e.target.value })}
-              className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
+              className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all"
             />
           </div>
         </div>
@@ -185,7 +181,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
           <input
             type="text"
             readOnly
-            value={formData.bookingType}
+            value={bookingType}
             className="w-full bg-[#2B154B]/10 border border-[#B7A7D6]/40 rounded-xl px-4 py-3 text-sm font-bold text-[#2B154B] cursor-not-allowed"
           />
         </div>
@@ -203,7 +199,7 @@ export function BookingForm({ bookingType, artistName }: BookingFormProps) {
             placeholder="Tell us about expected audience size, stage specs, or specific songs..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full bg-[#F5F2FB] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all resize-none"
+            className="w-full bg-[#FAF8FC] border border-[#B7A7D6]/40 rounded-xl pl-10 pr-4 py-3 text-sm text-[#1E1330] placeholder-[#6E6485]/60 focus:outline-none focus:border-[#2B154B] focus:ring-1 focus:ring-[#2B154B] transition-all resize-none"
           />
         </div>
       </div>
