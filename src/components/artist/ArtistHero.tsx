@@ -12,12 +12,33 @@ interface ArtistHeroProps {
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 /**
+ * Derives a short, hero-friendly excerpt from the artist's full biography
+ * — computed at render time only. The full standard-length bio in MongoDB
+ * (`fullDescription`) is never truncated or overwritten; the About section
+ * below still renders it in full. This keeps the Hero intro and the full
+ * biography consistent (same source text) instead of relying on a second,
+ * separately-authored short field.
+ */
+function getHeroExcerpt(bio: string, maxWords = 26): string {
+  const trimmed = bio.trim();
+  const firstSentenceMatch = trimmed.match(/^.*?[.!?](?=\s|$)/);
+  const firstSentence = firstSentenceMatch ? firstSentenceMatch[0] : trimmed;
+
+  const words = firstSentence.split(/\s+/);
+  if (words.length <= maxWords) return firstSentence;
+
+  return `${words.slice(0, maxWords).join(" ")}\u2026`;
+}
+
+/**
  * One reusable, data-driven hero for every artist subdomain microsite.
  * Content and image always come from the `artist` prop (the record
  * resolved server-side for the current subdomain) — nothing here is
  * hardcoded per-artist.
  */
 export function ArtistHero({ artist }: ArtistHeroProps) {
+  const heroExcerpt = getHeroExcerpt(artist.fullDescription || artist.description);
+
   return (
     <section className="relative overflow-hidden">
       {/* Soft ambient background — subtle CRWU-purple glows only, no dark/neon. */}
@@ -84,7 +105,7 @@ export function ArtistHero({ artist }: ArtistHeroProps) {
               transition={{ duration: 0.6, ease: EASE, delay: 0.22 }}
               className="text-base sm:text-lg text-[#6E6485] leading-relaxed max-w-md mx-auto md:mx-0"
             >
-              {artist.description}
+              {heroExcerpt}
             </motion.p>
 
             <motion.div

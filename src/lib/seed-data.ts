@@ -67,7 +67,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "Pushing boundaries and redefining the sonic landscape of the underground.",
     image: "/artists/SA.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "SA is an experimental rap artist known for pushing creative boundaries and reshaping the sound of the underground scene. Blending unconventional production with sharp, introspective lyricism, SA crafts music that feels raw, honest, and fearless. Each release reflects a restless drive to experiment, resulting in a distinctive sonic identity that continues to evolve with every project.",
     modalImage: "/artists/SA.webp",
     imageFocus: "center 32%",
     socials: {
@@ -86,7 +86,7 @@ export const SEED_ARTISTS: Artist[] = [
       "Lyricism that cuts deep. AZWIN tells the stories that others are afraid to touch.",
     image: "/artists/azwin-1.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "AZWIN is an alternative hip-hop artist known for lyricism that cuts deep and stories that others are afraid to tell. With a bold, introspective approach, AZWIN blends sharp wordplay with emotional honesty, crafting tracks that confront real experiences head-on. His unfiltered voice and distinctive style mark him as a compelling presence in the independent hip-hop scene.",
     modalImage: "/artists/azwin-2.webp",
     socials: {
       instagram: "https://www.instagram.com/azwinmusic?igsh=MzF3NG0xMWRpZWN5",
@@ -104,7 +104,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "Authentic, raw, and unapologetic. Nazeeb Billu is as real as it gets.",
     image: "/artists/nazeem-billu-1.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "Nazeeb Billu is a street rap artist known for delivering authentic, raw, and unapologetic music straight from real-life experience. His gritty flow and direct lyricism capture the energy of the streets, blending honesty with hard-hitting delivery. With every track, Nazeeb Billu stays true to his roots, building a reputation as one of the scene's most genuine voices.",
     modalImage: "/artists/nazeem-billu-2.webp",
     socials: {
       instagram: "https://www.instagram.com/nazeebbillu_?igsh=MWVuNjA0Z2Z5d3F2bw==",
@@ -121,7 +121,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "A phantom in the booth. Wraith V haunts every beat with surgical precision.",
     image: "/artists/Wraith V.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "Wraith V is a dark rap artist known for haunting, atmospheric production and razor-sharp delivery. Often described as a phantom in the booth, he approaches every beat with surgical precision, layering brooding tones with intense lyricism. His music carves out a distinct sonic space within the underground, marked by tension, mood, and unrelenting focus.",
     modalImage: "/artists/Wraith V.webp",
     socials: {
       instagram:
@@ -140,7 +140,7 @@ export const SEED_ARTISTS: Artist[] = [
       "Efy Music is an underground Hip-Hop artist known for delivering raw lyrics, authentic storytelling, and uncompromising energy.",
     image: "/artists/efy1.webp",
     fullDescription:
-      "Efy Music is an underground Hip-Hop artist known for delivering raw lyrics, authentic storytelling, and uncompromising energy. Drawing inspiration from real-life experiences and street culture, Efy Music creates hard-hitting tracks that blend gritty flows with powerful messages, representing the true spirit of independent Hip-Hop.",
+      "Efy Music is an underground Hip-Hop artist known for delivering raw lyrics, authentic storytelling, and uncompromising energy. Drawing inspiration from real-life experiences and street culture, Efy Music creates hard-hitting tracks that blend gritty flows with powerful messages. Each release channels genuine emotion and unfiltered perspective, representing the true spirit of independent Hip-Hop and its evolving underground community.",
     modalImage: "/artists/efy2.webp",
     socials: {
       instagram: "https://www.instagram.com/_efy___/?hl=en",
@@ -156,7 +156,8 @@ export const SEED_ARTISTS: Artist[] = [
     genre: "Experimental / Hip Hop",
     description: "a genre-bending artist blending hip hop, experimental, and Cultural sounds.",
     image: "/artists/fazil as.webp",
-    fullDescription: "a genre-bending artist blending hip hop, experimental, and Cultural sounds.",
+    fullDescription:
+      "Fazil AS is a genre-bending artist blending hip hop, experimental production, and cultural sounds into a distinctive musical identity. Unafraid to cross stylistic boundaries, he weaves unconventional textures with rhythmic storytelling, creating music that feels both rooted and forward-looking. His experimental approach continues to shape a sound that stands apart from the mainstream.",
     modalImage: "/artists/fazil1.webp",
     socials: {
       instagram: "https://www.instagram.com/fazil_as_music?igsh=ZG1xMnVxMzEyaWc4",
@@ -174,7 +175,7 @@ export const SEED_ARTISTS: Artist[] = [
       "AMANI KL10 is a music producer, DJ, and artist from Malappuram, Kerala, whose sound blends emotion, culture, and experimentation.",
     image: "/artists/AMANI KL10-1.webp",
     fullDescription:
-      "AMANI KL10 is a music producer, DJ, and artist from Malappuram, Kerala, whose sound blends emotion, culture, and experimentation. Inspired by artists like Martin Garrix, Amani began exploring music through EDM and DJing apps during school, gradually shaping his own independent creative path. Rooted deeply in Kerala’s evolving music scene, he has collaborated with artists including SA, JOKER390P, emzii, Sage End, and MC Mushti, steadily building a sound and identity that feel personal, grounded, and distinctly his own.",
+      "AMANI KL10 is a music producer, DJ, and artist from Malappuram, Kerala, whose sound blends emotion, culture, and experimentation. Inspired by artists like Martin Garrix, he began exploring EDM and DJing during school, shaping an independent creative path. Rooted in Kerala's music scene, he has collaborated with artists including SA, JOKER390P, and MC Mushti, building a sound that feels personal and distinctly his own.",
     modalImage: "/artists/AMANI KL10-2.webp",
     socials: {
       instagram: "https://www.instagram.com/amanikl10?igsh=aG12YXl1djM3Y3A4",
@@ -191,7 +192,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "Wisdom through rhythm. Sage End is the philosopher of the underground.",
     image: "/artists/Sega End.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "Sage End is a conscious rap artist known as the philosopher of the underground, delivering wisdom through rhythm and thoughtful, layered lyricism. His music explores introspection, purpose, and perspective, balancing sharp wordplay with a calm, grounded delivery. Sage End's reflective style offers listeners more than just sound, inviting them to think as much as they listen.",
     modalImage: "/artists/Sega End.webp",
     socials: {
       instagram: "https://www.instagram.com/thesageend/?utm_source=ig_web_button_share_sheet",
@@ -209,7 +210,7 @@ export const SEED_ARTISTS: Artist[] = [
       "Kerala-based hip hop & EDM artist. DH STORIES creates energetic, story-driven music inspired by culture, politics, and real-life experiences.",
     image: "/artists/DH.webp",
     fullDescription:
-      "Kerala-based hip hop & EDM artist. DH STORIES creates energetic, story-driven music inspired by culture, politics, and real-life experiences.",
+      "DH STORIES is a Kerala-based hip hop and EDM artist known for crafting energetic, story-driven music inspired by culture, politics, and real-life experience. Blending hard-hitting beats with narrative-focused lyricism, his tracks capture the pulse of everyday life while pushing genre boundaries. With a distinctive fusion sound, DH STORIES continues to carve out a unique identity in the independent scene.",
     modalImage: "/artists/DH1.webp",
     socials: {
       instagram: "https://www.instagram.com/thedhstories?igsh=cWl0MGdmaWl0MTNo",
@@ -226,7 +227,7 @@ export const SEED_ARTISTS: Artist[] = [
       "MC Mushti is a dynamic hip-hop artist, rapper, singer, poet, composer, and lyricist from Kerala, blending raw storytelling with powerful beats and authentic lyricism.",
     image: "/artists/MC MUSTHI one.webp",
     fullDescription:
-      "MC Mushti is a dynamic hip-hop artist, rapper, singer, poet, composer, and lyricist from Kerala, blending raw storytelling with powerful beats and authentic lyricism. Known for his energetic flow and versatile musical style, he fuses Malayalam hip-hop with global rap influences, creating music that reflects real-life experiences, culture, and street-inspired narratives. Through his unique voice and compelling performances, MC Mushti continues to push the boundaries of independent hip-hop while connecting with audiences across Kerala and beyond.",
+      "MC Mushti is a dynamic hip-hop artist, rapper, singer, and lyricist from Kerala, blending raw storytelling with powerful beats and authentic delivery. Known for his energetic flow and versatile style, he fuses Malayalam hip-hop with global rap influences, creating music rooted in real-life experience and culture. Through his distinctive voice, MC Mushti continues to connect with audiences across Kerala and beyond.",
     modalImage: "/artists/MC MUSTHI two.webp",
     socials: {
       instagram: "https://www.instagram.com/mcmushti/",
@@ -243,7 +244,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "Fresh perspective and unique style. Emziii is breaking the mold.",
     image: "/artist1.webp",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "Emziii is a new-school hip-hop artist bringing a fresh perspective and a distinctly unique style to the genre. Known for breaking the mold with unconventional flows and bold creative choices, Emziii crafts music that feels forward-thinking and unafraid to experiment. His evolving sound continues to carve out a fresh lane within the independent scene.",
     modalImage: "/artist1.webp",
     socials: {
       instagram: "#",
@@ -259,7 +260,7 @@ export const SEED_ARTISTS: Artist[] = [
     description: "Catchy hooks and effortless cool. Lil Roony is always on another level.",
     image: "/artists/Lil Roony.jpeg",
     fullDescription:
-      "Dive deeper into the world of this artist. Known for their unique sound, relentless energy, and dedication to the craft, they have been making waves in the underground scene. Their journey is a testament to raw talent and unapologetic authenticity.",
+      "Lil Roony is a vibe rap artist known for catchy hooks and an effortlessly cool delivery that sets him apart. His music blends smooth melodies with laid-back confidence, creating tracks that feel both relaxed and magnetic. With a natural sense of rhythm and style, Lil Roony continues to bring a distinct energy to the independent rap scene.",
     modalImage: "/artists/Lil Roony.jpeg",
     socials: {
       instagram:
@@ -296,7 +297,7 @@ export const SEED_ARTISTS: Artist[] = [
       "Haniya Nafisa is a Kerala-based independent artist known for exploring various music genres with a fresh and modern style.",
     image: "/artists/Haniya.webp",
     fullDescription:
-      "Haniya Nafisa is a Kerala-based independent artist known for exploring various music genres with a fresh and modern style.",
+      "Haniya Nafisa is a Kerala-based independent artist known for exploring multiple music genres with a fresh, modern approach. Her versatility allows her to move fluidly between styles, blending emotion and experimentation into music that feels personal and distinctive. With a growing catalog of releases, Haniya Nafisa continues to shape a sound that stands out in the independent scene.",
     modalImage: "/artists/Haniya1.JPEG.webp",
     socials: {
       instagram: "https://www.instagram.com/haniyanafisaa?igsh=azhtbmE1aHNoeDgx",
@@ -314,7 +315,7 @@ export const SEED_ARTISTS: Artist[] = [
       "Pushing the boundaries of independent rap with raw storytelling, signature flow, and authentic underground style.",
     image: "/artists/Parava 98.webp",
     fullDescription:
-      "Pushing the boundaries of independent rap with raw storytelling, signature flow, and authentic underground style. PARAVA 98 continues to connect with audiences through powerful performances and street-inspired narratives.",
+      "PARAVA 98 is an independent rap artist known for pushing creative boundaries through raw storytelling and a signature flow. Rooted in authentic underground style, his music captures street-inspired narratives with sharp lyricism and powerful delivery. Through consistent releases and energetic performances, PARAVA 98 continues to connect with audiences and build a distinct identity in the scene.",
     modalImage: "/artists/Parava 98.webp",
     socials: {
       instagram: "https://www.instagram.com/parava.98?utm_source=qr",
