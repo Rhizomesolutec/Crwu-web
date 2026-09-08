@@ -5,6 +5,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "mhr",
     name: "M.H.R",
+    subdomain: "mhr",
     genre: "EDM / HIP HOP",
     description:
       "M.H.R is an emerging independent hip-hop artist known for delivering emotionally driven lyrics, powerful storytelling, and a distinctive musical style. Blending modern rap with authentic expression, M.H.R creates tracks that resonate with listeners through raw emotion, meaningful narratives, and memorable performances, making him a rising talent in the independent music scene.",
@@ -23,6 +24,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "lil-payyan",
     name: "Lil PAYYAN",
+    subdomain: "lilpayyan",
     genre: "NEW WAVE RAP",
     description:
       "Lil PAYYAN is a dynamic hip-hop artist known for blending melodic flows, sharp lyricism, and modern Malayalam rap into a unique sound. His music combines raw storytelling with energetic performances, making him one of the emerging voices in the independent rap scene.",
@@ -41,6 +43,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "joker390p",
     name: "JOKER390P",
+    subdomain: "joker390p",
     genre: "TRAP / DRILL",
     description:
       "JOKER390P is a versatile hip-hop artist recognized for his powerful delivery, energetic stage presence, and fusion of regional influences with contemporary rap. With multiple successful collaborations and standout releases, he continues to push the boundaries of independent hip-hop through bold sound and authentic expression.",
@@ -59,6 +62,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "sa",
     name: "SA",
+    subdomain: "sa",
     genre: "EXPERIMENTAL / RAP",
     description: "Pushing boundaries and redefining the sonic landscape of the underground.",
     image: "/artists/SA.webp",
@@ -76,6 +80,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "azwin",
     name: "AZWIN",
+    subdomain: "azwin",
     genre: "ALTERNATIVE HIP HOP",
     description:
       "Lyricism that cuts deep. AZWIN tells the stories that others are afraid to touch.",
@@ -94,6 +99,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "nazeeb-billu",
     name: "Nazeeb Billu",
+    subdomain: "nazeebbillu",
     genre: "STREET RAP",
     description: "Authentic, raw, and unapologetic. Nazeeb Billu is as real as it gets.",
     image: "/artists/nazeem-billu-1.webp",
@@ -110,6 +116,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "wraith-v",
     name: "Wraith V",
+    subdomain: "wraithv",
     genre: "DARK RAP",
     description: "A phantom in the booth. Wraith V haunts every beat with surgical precision.",
     image: "/artists/Wraith V.webp",
@@ -127,6 +134,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "efy-music",
     name: "Efy Music",
+    subdomain: "efymusic",
     genre: "UNDERGROUND HIP-HOP",
     description:
       "Efy Music is an underground Hip-Hop artist known for delivering raw lyrics, authentic storytelling, and uncompromising energy.",
@@ -144,6 +152,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "fazil-as",
     name: "Fazil AS",
+    subdomain: "fazilas",
     genre: "Experimental / Hip Hop",
     description: "a genre-bending artist blending hip hop, experimental, and Cultural sounds.",
     image: "/artists/fazil as.webp",
@@ -159,6 +168,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "amani-kl10",
     name: "AMANI KL10",
+    subdomain: "amanikl10",
     genre: "MUSIC PRODUCER / DJ / ARTIST",
     description:
       "AMANI KL10 is a music producer, DJ, and artist from Malappuram, Kerala, whose sound blends emotion, culture, and experimentation.",
@@ -176,6 +186,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "sage-end",
     name: "Sage End",
+    subdomain: "sageend",
     genre: "CONSCIOUS RAP",
     description: "Wisdom through rhythm. Sage End is the philosopher of the underground.",
     image: "/artists/Sega End.webp",
@@ -192,6 +203,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "dh-stories",
     name: "DH STORIES",
+    subdomain: "dhstories",
     genre: "HIP HOP / EDM",
     description:
       "Kerala-based hip hop & EDM artist. DH STORIES creates energetic, story-driven music inspired by culture, politics, and real-life experiences.",
@@ -208,6 +220,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "mc-mushti",
     name: "MC Mushti",
+    subdomain: "mcmushti",
     genre: "HARDCORE HIP HOP",
     description:
       "MC Mushti is a dynamic hip-hop artist, rapper, singer, poet, composer, and lyricist from Kerala, blending raw storytelling with powerful beats and authentic lyricism.",
@@ -225,6 +238,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "emziii",
     name: "Emziii",
+    subdomain: "emziii",
     genre: "NEW SCHOOL",
     description: "Fresh perspective and unique style. Emziii is breaking the mold.",
     image: "/artist1.webp",
@@ -240,6 +254,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "lil-roony",
     name: "Lil Roony",
+    subdomain: "lilroony",
     genre: "VIBE RAP",
     description: "Catchy hooks and effortless cool. Lil Roony is always on another level.",
     image: "/artists/Lil Roony.jpeg",
@@ -257,6 +272,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "abu-x-wrong",
     name: "Abu x-wrong",
+    subdomain: "abuxwrong",
     genre: "MELODIC RAP",
     description:
       "Abu X-Wrong is a Kerala-based hip-hop artist blending melodic rap with cultural hip-hop elements.",
@@ -274,6 +290,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "haniya-nafisa",
     name: "Haniya Nafisa",
+    subdomain: "haniyanafisa",
     genre: "INDEPENDENT / MULTI-GENRE",
     description:
       "Haniya Nafisa is a Kerala-based independent artist known for exploring various music genres with a fresh and modern style.",
@@ -291,6 +308,7 @@ export const SEED_ARTISTS: Artist[] = [
   {
     id: "parava-98",
     name: "PARAVA 98",
+    subdomain: "parava98",
     genre: "HIP HOP / RAP",
     description:
       "Pushing the boundaries of independent rap with raw storytelling, signature flow, and authentic underground style.",

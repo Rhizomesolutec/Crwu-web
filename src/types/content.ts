@@ -7,6 +7,8 @@ export interface ArtistSocials {
 export interface Artist {
   id: string;
   name: string;
+  /** URL-safe label for the artist's dedicated subdomain microsite (e.g. "mhr" -> mhr.crwu.com). */
+  subdomain: string;
   genre: string;
   description: string;
   fullDescription: string;

@@ -7,7 +7,8 @@ import { BookingSelector } from "@/components/booking/BookingSelector";
 import { ReleaseCard } from "@/components/releases/ReleaseCard";
 import { getArtistBySlug, getArtistSlugs } from "@/lib/data/artists";
 import { getReleasesByArtistName } from "@/lib/data/releases";
-import { Music, ArrowLeft, Calendar, Disc, CheckCircle2 } from "lucide-react";
+import { getArtistUrl } from "@/lib/domain";
+import { Music, ArrowLeft, Calendar, Disc, CheckCircle2, Globe } from "lucide-react";
 import { InstagramIcon, YoutubeIcon } from "@/components/common/Icons";
 
 interface ArtistPageProps {
@@ -91,7 +92,7 @@ export default async function ArtistDetailsPage({ params }: ArtistPageProps) {
               {artist.description}
             </p>
 
-            <div className="pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#booking"
                 className="inline-flex items-center gap-3 bg-[#4E2A84] hover:bg-[#3d2168] text-white font-semibold px-8 py-4 rounded-2xl text-base shadow-[0_12px_30px_rgba(78,42,132,0.2)] transition-all duration-300 hover:-translate-y-0.5"
@@ -99,6 +100,17 @@ export default async function ArtistDetailsPage({ params }: ArtistPageProps) {
                 <Calendar className="w-5 h-5 text-[#C9BDE8]" />
                 <span>Book {artist.name}</span>
               </a>
+              {artist.subdomain && (
+                <a
+                  href={getArtistUrl(artist.subdomain)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-white text-[#4E2A84] border border-[#4E2A84]/16 hover:bg-[#4E2A84]/8 font-semibold px-6 py-4 rounded-2xl text-sm transition-all duration-300"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>Visit Official Site</span>
+                </a>
+              )}
             </div>
           </div>
         </section>
