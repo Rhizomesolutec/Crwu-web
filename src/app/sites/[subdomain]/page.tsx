@@ -8,6 +8,7 @@ import { getReleasesByArtistName } from "@/lib/data/releases";
 import { extractSubdomain, getRootSiteUrl } from "@/lib/domain";
 import { ReleaseCard } from "@/components/releases/ReleaseCard";
 import { BookingSelector } from "@/components/booking/BookingSelector";
+import { ArtistHero } from "@/components/artist/ArtistHero";
 import { InstagramIcon, YoutubeIcon } from "@/components/common/Icons";
 import type { Artist } from "@/types/content";
 
@@ -93,86 +94,11 @@ export default async function ArtistSitePage({ params }: ArtistSitePageProps) {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-16">
-        {/* Artist Hero */}
-        <section className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
-          <div className="md:col-span-5 relative aspect-[4/5] rounded-[1.75rem] overflow-hidden bg-[#4E2A84]/5">
-            <Image
-              src={artist.modalImage || artist.image}
-              alt={artist.name}
-              fill
-              priority
-              sizes="(max-width: 768px) 100vw, 40vw"
-              className="object-cover"
-              style={{ objectPosition: artist.imageFocus || "center 32%" }}
-            />
-            {artist.bookingAvailable !== false && (
-              <div className="absolute top-4 left-4 bg-[#1F1F1F]/70 backdrop-blur-md text-white text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Available for Booking</span>
-              </div>
-            )}
-          </div>
+      {/* Artist Hero — dynamic, reusable for every artist subdomain. Renders
+          full-bleed above <main> so there's no padded gap before it. */}
+      <ArtistHero artist={artist} />
 
-          <div className="md:col-span-7 space-y-5">
-            <span className="inline-block text-[11px] font-semibold uppercase tracking-[0.18em] text-[#4E2A84] bg-[#4E2A84]/8 px-3 py-1 rounded-md">
-              {artist.genre}
-            </span>
-            <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight font-[family-name:var(--font-recoleta)]">
-              {artist.name}
-            </h1>
-            <p className="text-base sm:text-lg text-[#6E6485] leading-relaxed">
-              {artist.description}
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              {artist.socials.instagram && artist.socials.instagram !== "#" && (
-                <a
-                  href={artist.socials.instagram}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${artist.name} Instagram`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#4E2A84]/14 bg-white text-[#4E2A84] hover:bg-[#4E2A84] hover:text-white transition-colors"
-                >
-                  <InstagramIcon className="w-4 h-4" />
-                </a>
-              )}
-              {artist.socials.spotify && artist.socials.spotify !== "#" && (
-                <a
-                  href={artist.socials.spotify}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${artist.name} Spotify`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#4E2A84]/14 bg-white text-[#4E2A84] hover:bg-[#4E2A84] hover:text-white transition-colors"
-                >
-                  <Music2 className="w-4 h-4" />
-                </a>
-              )}
-              {artist.socials.youtube && artist.socials.youtube !== "#" && (
-                <a
-                  href={artist.socials.youtube}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${artist.name} YouTube`}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#4E2A84]/14 bg-white text-[#4E2A84] hover:bg-[#4E2A84] hover:text-white transition-colors"
-                >
-                  <YoutubeIcon className="w-4 h-4" />
-                </a>
-              )}
-            </div>
-
-            <div className="pt-2">
-              <a
-                href="#booking"
-                className="inline-flex items-center gap-3 bg-[#4E2A84] hover:bg-[#3d2168] text-white font-semibold px-8 py-4 rounded-2xl text-base shadow-[0_12px_30px_rgba(78,42,132,0.2)] transition-all duration-300 hover:-translate-y-0.5"
-              >
-                <Calendar className="w-5 h-5 text-[#C9BDE8]" />
-                <span>Book {artist.name}</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
+      <main className="max-w-5xl mx-auto px-4 sm:px-6 pb-12 sm:pb-16 space-y-16">
         {/* About the Artist */}
         <section className="bg-white/80 rounded-[2rem] p-6 sm:p-10 space-y-4">
           <h2 className="text-2xl sm:text-3xl font-semibold font-[family-name:var(--font-recoleta)]">
@@ -187,7 +113,7 @@ export default async function ArtistSitePage({ params }: ArtistSitePageProps) {
             collaborations where they're credited), via the existing
             getReleasesByArtistName() matcher shared with /artists/[slug]. */}
         {releases.length > 0 && (
-          <section className="space-y-6">
+          <section id="releases" className="space-y-6 scroll-mt-8">
             <h2 className="text-2xl sm:text-4xl font-semibold font-[family-name:var(--font-recoleta)]">
               Released Music
             </h2>
@@ -198,6 +124,55 @@ export default async function ArtistSitePage({ params }: ArtistSitePageProps) {
             </div>
           </section>
         )}
+
+        {/* Social / Streaming */}
+        {(artist.socials.instagram && artist.socials.instagram !== "#") ||
+        (artist.socials.spotify && artist.socials.spotify !== "#") ||
+        (artist.socials.youtube && artist.socials.youtube !== "#") ? (
+          <section className="space-y-5">
+            <h2 className="text-xl sm:text-2xl font-semibold font-[family-name:var(--font-recoleta)]">
+              Connect & Stream
+            </h2>
+            <div className="flex flex-wrap items-center gap-3">
+              {artist.socials.instagram && artist.socials.instagram !== "#" && (
+                <a
+                  href={artist.socials.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${artist.name} Instagram`}
+                  className="inline-flex items-center gap-2 bg-white hover:bg-[#4E2A84]/8 text-[#1F1F1F] font-semibold text-xs px-3.5 py-2.5 rounded-xl border border-[#4E2A84]/12 transition-colors"
+                >
+                  <InstagramIcon className="w-4 h-4 text-[#4E2A84]" />
+                  <span>Instagram</span>
+                </a>
+              )}
+              {artist.socials.spotify && artist.socials.spotify !== "#" && (
+                <a
+                  href={artist.socials.spotify}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${artist.name} Spotify`}
+                  className="inline-flex items-center gap-2 bg-white hover:bg-[#4E2A84]/8 text-[#1F1F1F] font-semibold text-xs px-3.5 py-2.5 rounded-xl border border-[#4E2A84]/12 transition-colors"
+                >
+                  <Music2 className="w-4 h-4 text-emerald-600" />
+                  <span>Spotify</span>
+                </a>
+              )}
+              {artist.socials.youtube && artist.socials.youtube !== "#" && (
+                <a
+                  href={artist.socials.youtube}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${artist.name} YouTube`}
+                  className="inline-flex items-center gap-2 bg-white hover:bg-[#4E2A84]/8 text-[#1F1F1F] font-semibold text-xs px-3.5 py-2.5 rounded-xl border border-[#4E2A84]/12 transition-colors"
+                >
+                  <YoutubeIcon className="w-4 h-4 text-red-600" />
+                  <span>YouTube</span>
+                </a>
+              )}
+            </div>
+          </section>
+        ) : null}
 
         {/* Booking — reuses the existing booking system. Because the
             artist name comes straight from the validated database record
